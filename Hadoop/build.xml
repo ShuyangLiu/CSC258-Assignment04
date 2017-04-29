@@ -1,0 +1,23 @@
+<project default="jar">
+  <!-- Hadoop configuration -->
+  <property name="hadoop.dir" value="/u/hdusr/hadoop/"/>
+  <path id="hadoop.cp">
+    <fileset dir="${hadoop.dir}" includes="**/*.jar"/> <!-- All the jars-->
+  </path>
+
+  <target name="clean">
+    <delete dir="build"/>
+  </target>
+
+  <target name="compile">
+    <mkdir dir="build/classes"/>
+    <javac includeantruntime="false"
+           deprecation="true"
+           srcdir="src" destdir="build/classes"
+           classpathref="hadoop.cp"/>
+  </target>
+
+  <target name="jar" depends="compile">
+    <jar destfile="build/WordCount.jar" basedir="build/classes" />
+  </target>
+</project>

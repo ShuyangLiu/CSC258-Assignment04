@@ -1,0 +1,1 @@
+$HADOOP_HOME/bin/hdfs dfs -rm -r /users/sliu44/output ; $HADOOP_HOME/bin/hadoop jar build/WordCount.jar WordCount /users/sliu44/input /users/sliu44/output
